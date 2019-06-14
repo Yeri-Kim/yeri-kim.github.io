@@ -4,11 +4,9 @@ date: "2019-06-14T22:40:32.169Z"
 template: "post"
 draft: false
 slug: "/posts/how-to-install-gatsby/"
-category: "Gatsby"
+category: "gatsby"
 description: "Gatsby로 정적 블로그를 만들어 봅니다."
 ---
-
-# Gatsby로 블로그 만들기
 
 _[wecode](https://wecode.co.kr) 수강생 대상으로 작성한 포스팅입니다._
 
