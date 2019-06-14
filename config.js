@@ -3,7 +3,7 @@
 module.exports = {
   url: 'https://yeri-kim.github.io/',
   title: 'Blog by Yeri',
-  subtitle: 'v',
+  subtitle: 'hello world',
   copyright: '© All rights reserved.',
   disqusShortname: '',
   postsPerPage: 4,
