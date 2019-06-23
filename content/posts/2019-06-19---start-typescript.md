@@ -1,11 +1,11 @@
 ---
-title: TypeScript 공부 시작
+title: TypeScript 공부 시작 - Basic Type
 date: "2019-06-19T11:41:32.169Z"
 template: "post"
 draft: false
 slug: "/posts/start-typescript/"
-category: "TypeSript"
-description: "더 이상 거부할 수 없는 typescript.. 제대로 한 번 공부해보기로 했습니다."
+category: "TypeScript"
+description: "더 이상 거부할 수 없는 typescript.. 제대로 한 번 공부해보기로 했습니다. 첫 시간에서는 10여개의 ts data type을 알아봅니다."
 ---
 
 JavaScript를 워낙 오래 써서 그런지 type이 없는 언어에 별로 불편함을 느낀적이 없었습니다.

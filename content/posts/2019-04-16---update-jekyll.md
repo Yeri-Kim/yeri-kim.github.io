@@ -38,7 +38,7 @@ bundle show minima
 
 저의 경로는 `/Users/AllieKim/.rvm/gems/ruby-2.4.2/gems/minima-2.5.0`라고 나오네요.
 해당경로로 이동하면 아래의 파일들이 있습니다.
-<img src="/img/190227-3.png" width="500"/>
+<img src="/media/190227-3.png" width="500"/>
 
 이중에서 수정하고 싶은 요소를 가져와서 변경하면, jeykyll에서 overwrite하여 보여주게 됩니다.
 이 중에서 `_includes/footer.html` 을 가져와서 수정해보겠습니다.
@@ -79,4 +79,4 @@ footer부분을 수정하겠습니다. `.wecode-logo` 부분을 그대로 추가
 }
 ```
 아래와 같이 powered by wecode가 추가되면 성공!
-![](/img/190416-2-1.png)
+![](/media/190416-2-1.png)

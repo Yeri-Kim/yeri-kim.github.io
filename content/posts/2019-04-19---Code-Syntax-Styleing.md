@@ -14,7 +14,7 @@ tags:
 _[wecode](https://wecode.co.kr) 수강생을 위해 작성했습니다 :)_
 
 default theme인 minima의 code block 스타일이 어색해서 좀 바꿔보겠습니다.
-<img src="/img/190419-1.png" width="400">
+<img src="/media/190419-1.png" width="400">
 
 제가 사용하는 IDE는 Webstorm이고 테마는 Darcula을 사용하고 있습니다. 워낙 Webstorm 색깔에 익숙해져서 최대한 비슷하게 수정해보려고 합니다.
 일단 minima에서 code syntax highlighting에 해당하는 css를 가져와야 합니다.
@@ -29,7 +29,7 @@ bundle show minima
 제 블로그 디렉토리는 myblog이기 때문에 `myblog/_sass`밑에 두 파일을 넣어주었습니다.
 
 이제부터 개발자도구를 열고, 바꾸고 싶은 구문의 class를 찾아서 color를 하나씩, 하나씩 바꿔줍니다!
-![](/img/190419-2.png)
+![](/media/190419-2.png)
 아! "태그p"에 해당하는 class는 `nt` 니까 `_syntax-highlighting.scss`에서 `.nt`부분을 찾아 color속성을 바꿔주면 되겠군!
 
 참 쉽죠?

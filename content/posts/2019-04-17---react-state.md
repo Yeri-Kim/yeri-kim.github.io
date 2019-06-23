@@ -1,6 +1,6 @@
 ---
 title: React 3 - Component의 State
-date: "2019-04-17T22:40:32.169Z"
+date: "2019-04-17T22:41:32.169Z"
 template: "post"
 draft: false
 slug: "/posts/react-state/"

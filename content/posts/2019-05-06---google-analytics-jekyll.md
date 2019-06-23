@@ -46,7 +46,7 @@ if(!(window.doNotTrack === "1" || navigator.doNotTrack === "1" || navigator.doNo
 ### GA 가입하기
 
 [GA 홈](https://analytics.google.com)에서 Sign Up을 누르고 아래와 같이 세팅했습니다.
-<img src="/img/190506-ga.png" width="340" />
+<img src="/media/190506-ga.png" width="340" />
 
 가입하자마자 첫 화면에 Tracking ID가 나올거예요.<br/>
 저는 `UA-1397***33-1` 입니다. (노출되도 상관은 없지만 조금 가려봅니다 :kissing_closed_eyes:)
@@ -64,7 +64,7 @@ google_analytics: UA-1397***33-1
 만약 본인의 github.io에 google_analytics를 추가한 _config.yml이 올라간게 확실하다면, GA에서 Home을 눌러주세요.
 
 아래와 같이 나오시죠? 참 쉽죠?
-![](/img/190506-ga1.png)
+![](/media/190506-ga1.png)
 
 GA 추가하고, 하루이틀, 일주일 지났는데 나 혼자 밖에 안 들어와..<br>
 그래도 좌절하지 말고 1일 1포스팅 열심히 합시다!<br/>

@@ -1,6 +1,6 @@
 ---
 title: React 4 - React 컴포넌트의 Lifecycle
-date: "2019-04-17T22:40:32.169Z"
+date: "2019-04-17T22:42:32.169Z"
 template: "post"
 draft: false
 slug: "/posts/react-liefcycle/"
@@ -13,7 +13,7 @@ description: "이번 시간은 React 컴포넌트의 생애주기(life cycle)에
 _[React 공식문서](https://reactjs.org/docs/state-and-lifecycle.html)를 참고하여 번역하고 내용을 추가하였습니다._
 
 이번 시간은 React 컴포넌트의 생애주기(life cycle)에 대해 알아보는 시간입니다.<br/>
-<img src="/img/190417-lifecycle-1.png" width="210px">
+<img src="/media/190417-lifecycle-1.png" width="210px">
 render, componentDidMount, componentDidUpdate, componentWillUnmount 등의 함수는 `React.Component` class에서 제공하는 메서드 입니다.
 컴포넌트를 만들 때 class로 생성하면 위의 메서드를 사용할 수 있고, 컴포넌트가 lifecycle에 따라 각자의 메서드가 호출됩니다.
 

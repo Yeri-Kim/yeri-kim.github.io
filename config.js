@@ -6,7 +6,7 @@ module.exports = {
   subtitle: 'hello world',
   copyright: '© All rights reserved.',
   disqusShortname: 'github-io-12',
-  postsPerPage: 4,
+  postsPerPage: 6,
   googleAnalyticsId: 'UA-73379983-2',
   menu: [
     {

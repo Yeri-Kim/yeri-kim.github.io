@@ -1,6 +1,6 @@
 ---
 title: React 6 - React router
-date: "2019-04-18T22:40:32.169Z"
+date: "2019-04-18T23:40:32.169Z"
 template: "post"
 draft: false
 slug: "/posts/react-router/"

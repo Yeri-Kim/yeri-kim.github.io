@@ -16,7 +16,7 @@ tags:
 
 ### Google Search Console
 1.[Google Search Console](https://search.google.com/search-console/welcome) 접속 후 우측에 내 블로그 주소 작성 -> continue
-![](/img/190506-search.png)
+![](/media/190506-search.png)
 이 과정에서 해당 사이트 주인인지 verify가 필요한데 이미 설정한 GA를 통해 verify를 했습니다.<br/>
 혹시 GA를 설정 안 했다면 어떤 식으로 verify 할지는 잘 모르겠네요?
 
@@ -26,14 +26,14 @@ jeykyll plugin을 통해 만들 수도 있지만, 어렵지 않으니 직접 만
 
 아래에 복붙할 수 있도록 코드를 작성했었는데, 쓴 그대로 나오는게 아니라 Liquid tag를 해석해서 나온 결과물이 나오므로 이미지 캡쳐만 드립니다.
 코드는 [github](https://github.com/Yeri-Kim/yeri-kim.github.io/blob/master/sitemap.xml)에서 확인해주세요.
-<img src="/img/190506-xml.png" width="400" />
+<img src="/media/190506-xml.png" width="400" />
 
 3.위의 코드에서 보듯이 site.url을 사용하고 있으니 _config.yml에 url을 추가해주세요.
 ```
 url: https://yeri-kim.github.io/
 ```
 4.Google Search Console 에서 sitemap.xml url 추가 후 submit
-![](/img/190506-sitemap.png)
+![](/media/190506-sitemap.png)
 
 끄읕! 참 쉽죠?
 

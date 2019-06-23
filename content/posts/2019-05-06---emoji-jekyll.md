@@ -43,7 +43,7 @@ bundle install
 ```
 
 윽. 또 한 번의 에러가 났습니다.
-<img src="/img/190506-error.png" width="500" />
+<img src="/media/190506-error.png" width="500" />
 아마도 gem이나 jekyll의 버전이 맞지 않는가봐요? 검색을 해보니 update를 한 번 하라고 합니다.
 
 ```

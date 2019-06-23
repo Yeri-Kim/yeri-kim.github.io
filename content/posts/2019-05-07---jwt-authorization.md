@@ -24,7 +24,7 @@ jwt는 `Json Web Token`의 약자로 access token을 만드는 방법 중 하나
 ```
 eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjo1fQ.Dy3PPHIOFFe3ScGTb8x3hewItnpOcgC9YDdW7v27XHg
 ```
-<img src="/img/190507-jwt.png" width="400" />
+<img src="/media/190507-jwt.png" width="500" />
 
 페이지를 이동할 때 마다, 아니면 브라우저를 끄고 켤때마다 매번 로그인을 할 수 없기 때문에 이렇게 access token을 주고 받아서 사용자 인증을 진행합니다.
 로그인을 하면 access token을 받아서, 프론트앤드는 어딘가에 보관하고 있다가 사용자 정보가 필요한 api에 해당 access token을 백앤드에 보내줍니다.
@@ -66,7 +66,7 @@ fetch('http://localhost:8000/login/', {
 })
 ```
 개발자도구 -> Application tab -> Local Storage 에서 wtw-token 이름으로 된 data가 저장 됐으면 성공!
-<img src="/img/190507-local-storage.png" width="400" />
+<img src="/media/190507-local-storage.png" width="500" />
 
 ### request header에 access token 보내기
 이제는 api를 호출할 때마다 access token을 보내보도록 하겠습니다.
