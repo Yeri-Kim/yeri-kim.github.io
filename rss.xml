@@ -1,4 +1,106 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Blog by Yeri]]></title><description><![CDATA[hello world]]></description><link>https://yeri-kim.github.io/</link><generator>RSS for Node</generator><lastBuildDate>Fri, 12 Jul 2019 06:45:07 GMT</lastBuildDate><item><title><![CDATA[React Native - style]]></title><link>https://yeri-kim.github.io//posts/rn-style/</link><guid isPermaLink="false">https://yeri-kim.github.io//posts/rn-style/</guid><pubDate>Fri, 12 Jul 2019 13:42:32 GMT</pubDate><content:encoded>&lt;p&gt;React Native 공부를 시작하면서 느낀 불편함이 몇 개 있는데 첫 번째는 개발자도구의 Element, Network 탭 같은 것이 없다는 것이다.&lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Blog by Yeri]]></title><description><![CDATA[hello world]]></description><link>https://yeri-kim.github.io/</link><generator>RSS for Node</generator><lastBuildDate>Sun, 14 Jul 2019 08:52:52 GMT</lastBuildDate><item><title><![CDATA[[JavaScript Patterns] 2장 기초]]></title><description><![CDATA[O'REILLY의 자바스크립트 코딩 기법과 핵심 패턴 챕터 2장 정리]]></description><link>https://yeri-kim.github.io//posts/js-pattern-2/</link><guid isPermaLink="false">https://yeri-kim.github.io//posts/js-pattern-2/</guid><pubDate>Fri, 12 Jul 2019 14:43:32 GMT</pubDate><content:encoded>&lt;p&gt;유지보수 가능한 코드란 다음과 같은 특징을 지닌다.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;읽기 쉽다.&lt;/li&gt;
+&lt;li&gt;일관적이다.&lt;/li&gt;
+&lt;li&gt;예측 가능하다.&lt;/li&gt;
+&lt;li&gt;한 사람이 작성한 것처럼 보인다.&lt;/li&gt;
+&lt;li&gt;문서화되어 있다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;단일-선언-패턴&quot;&gt;&lt;a href=&quot;#%EB%8B%A8%EC%9D%BC-%EC%84%A0%EC%96%B8-%ED%8C%A8%ED%84%B4&quot; aria-label=&quot;단일 선언 패턴 permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;단일 선언 패턴&lt;/h3&gt;
+&lt;p&gt;함수 상단에서 let, const 선언을 한 번만 쓰는 패턴은 다음과 같은 이점들이 있다.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;함수에서 필요로 하는 모든 지역 변수를 한군데서 찾을 수 있다.&lt;/li&gt;
+&lt;li&gt;변수를 선언하기 전에 사용할 때 발생하는 로직상의 오류를 막아준다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;단점은 디버깅할 때 선언부의 변수에 접근하기 어렵다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;js&quot;&gt;&lt;pre class=&quot;language-js&quot;&gt;&lt;code class=&quot;language-js&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;fun&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;let&lt;/span&gt; a &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+      b &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+      c &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; a &lt;span class=&quot;token operator&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+      i&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+      &lt;span class=&quot;token comment&quot;&gt;//함수 본문&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3 id=&quot;for-루프&quot;&gt;&lt;a href=&quot;#for-%EB%A3%A8%ED%94%84&quot; aria-label=&quot;for 루프 permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;for 루프&lt;/h3&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;js&quot;&gt;&lt;pre class=&quot;language-js&quot;&gt;&lt;code class=&quot;language-js&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;//최적화되지 않은 푸르&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;let&lt;/span&gt; i &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; i &lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt; arr&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;length&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; i&lt;span class=&quot;token operator&quot;&gt;++&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token comment&quot;&gt;//arr[i] ..&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;이 패턴의 문제점은 루프순회마다 배열의 length에 접근한다는 점이다.
+arr가 평범한 배열이면 괜찮을 수도 있지만, DOM접근이 필요한 배열이라면 상당한 비용이 발생한다.&lt;/p&gt;
+&lt;p&gt;아래와 같이 배열의 length를 캐시하자.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;js&quot;&gt;&lt;pre class=&quot;language-js&quot;&gt;&lt;code class=&quot;language-js&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;let&lt;/span&gt; i &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; max &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; arr&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;length&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; i &lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt; max&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; i&lt;span class=&quot;token operator&quot;&gt;++&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token comment&quot;&gt;//arr[i] ..&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3 id=&quot;for-in-루프&quot;&gt;&lt;a href=&quot;#for-in-%EB%A3%A8%ED%94%84&quot; aria-label=&quot;for in 루프 permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;for-in 루프&lt;/h3&gt;
+&lt;p&gt;for-in 루프는 객체를 순회할 때 사용하는데, for-in으로 루프를 도는 것을 열거(enumeration)라고도 한다.
+for-in에서는 프로퍼티를 열거하는 순서가 정해져있지 않으므로 유의하자.&lt;/p&gt;
+&lt;p&gt;객체의 프로퍼티를 순회할 때는 프로토타입 체인을 따라 상속되는 프로퍼티들을 걸러내기 위해 hasOwnProperty()메서드를 사용해야한다.&lt;/p&gt;
+&lt;p&gt;오로지 자신의 property만 나올 수 있도록, 즉, prototype의 property를 걸러내도록 꼭 사용해야한다는 의미이다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;js&quot;&gt;&lt;pre class=&quot;language-js&quot;&gt;&lt;code class=&quot;language-js&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;let&lt;/span&gt; man &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  hands&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+  legs&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+  haed&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;let&lt;/span&gt; i &lt;span class=&quot;token keyword&quot;&gt;in&lt;/span&gt; man&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;man&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;hasOwnProperty&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;i&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token comment&quot;&gt;//내용&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3 id=&quot;parseint를-통한-숫자-변환&quot;&gt;&lt;a href=&quot;#parseint%EB%A5%BC-%ED%86%B5%ED%95%9C-%EC%88%AB%EC%9E%90-%EB%B3%80%ED%99%98&quot; aria-label=&quot;parseint를 통한 숫자 변환 permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;parseInt()를 통한 숫자 변환&lt;/h3&gt;
+&lt;p&gt;parseInt()를 사용해서 문자열 -&gt; 숫자로 변환하는 경우, 두 번째 인자에 꼭 기수를 넘겨줄 것!
+두 번째 인자인 기수(radix, 진수)의 default 값이 10이 아니므로, 명확하게 꼭 써줘야 한다.&lt;/p&gt;
+&lt;h3 id=&quot;그-외&quot;&gt;&lt;a href=&quot;#%EA%B7%B8-%EC%99%B8&quot; aria-label=&quot;그 외 permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;그 외..&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;전역 변수 최소화&lt;/li&gt;
+&lt;li&gt;암묵적 type casting 피하기 (== 말고 === 사용)&lt;/li&gt;
+&lt;li&gt;코드 작성 규칙 준수(공백, 들여쓰기, 중괄호, 세미콜론, 명명 규칙)&lt;/li&gt;
+&lt;/ul&gt;</content:encoded></item><item><title><![CDATA[[JavaScript Patterns] 1장 개요]]></title><description><![CDATA[O'REILLY의 자바스크립트 코딩 기법과 핵심 패턴 챕터 1장 정리]]></description><link>https://yeri-kim.github.io//posts/js-pattern-1/</link><guid isPermaLink="false">https://yeri-kim.github.io//posts/js-pattern-1/</guid><pubDate>Fri, 12 Jul 2019 14:42:32 GMT</pubDate><content:encoded>&lt;p&gt;2011년에 발행된 정말 오래된 책인데, 오랜만에 훑어보다가 아직도 좋은 내용이 많아서 다시 읽기로 하였다.
+반 정도 읽었는데 나의 개발 습관과 책의 내용이 거의 비슷했다. 신입시절에 읽어서 그런지 읽은 기억이 없는데, 이렇게 밑줄까지 쳐서 읽은거 보니 현재 나의 개발 습관에 많이 영향을 받은 듯 하다.
+&lt;img src=&quot;/media/190714.jpg&quot;&gt;
+물론 이 책만 읽은 것은 아니고ㅎㅎ 정말 많은 책과 해외 온라인 강의를 봤다.
+공부할 때는 해도해도 끝이 없어보이고, 읽어도 까먹는 것 같아서 한숨만 나왔는데 지금 사람들을 가르치고, 다른 회사 코드리뷰도 했던 걸 보면 나도 모르게 지식이 쌓이고 있었나보다.
+개발자는 공부를 게을리 해서는 안 된다는 생각을 다시금 한다.
+이 책도 빨리 일독을 끝내야지. 공부할게 산더미다. 일할 것도 산더미고, 토이플젝도 쌓여있고 ㅎㅎ&lt;/p&gt;
+&lt;h3 id=&quot;패턴이란&quot;&gt;&lt;a href=&quot;#%ED%8C%A8%ED%84%B4%EC%9D%B4%EB%9E%80&quot; aria-label=&quot;패턴이란 permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;패턴이란?&lt;/h3&gt;
+&lt;p&gt;일반적인 문제에 대한 해결책을 가리킨다. 곧바로 복사해서 붙여넣을 수 있는 코드 형태의 답이 아니라, 모법적인 관행, 쓰임새에 맞게 추상화된 원리 등을 말한다.&lt;/p&gt;
+&lt;p&gt;안티패턴은 버그나 코딩 에러가 아니라, 문제를 해결하기보다는 오류를 더 많이 일으킬 수 있는 흔히 잘못 사용하는 접근 방법을 말한다.&lt;/p&gt;
+&lt;h3 id=&quot;자바스크립트의-개념&quot;&gt;&lt;a href=&quot;#%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8%EC%9D%98-%EA%B0%9C%EB%85%90&quot; aria-label=&quot;자바스크립트의 개념 permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;자바스크립트의 개념&lt;/h3&gt;
+&lt;h4 id=&quot;객체지향&quot;&gt;&lt;a href=&quot;#%EA%B0%9D%EC%B2%B4%EC%A7%80%ED%96%A5&quot; aria-label=&quot;객체지향 permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;객체지향&lt;/h4&gt;
+&lt;p&gt;자바스크립트는 객체지향 언어이다.
+number, string, boolean, null, undefined 같은 다섯 종류의 원시 데이터 타입만이 객체가 아니다.
+이 중 number, string, boolean 타입은 객체의 표현과 동일한 primitive wrapper를 가진다. 이 원시 데이터 타입 값들은
+개발자 또는 내부적인 자바스크립트 인터프리터에 의해 쉽게 객체로 변환된다.&lt;/p&gt;
+&lt;p&gt;함수 또한 객체다.&lt;/p&gt;
+&lt;p&gt;어떤 변수 또한 객체다. 변수는 자동으로 Activation Object라 불리는 내부적인 객체의 프로퍼티가 된다(전역 변수인 경우에는 전역 객체의 프로퍼티가 된다).
+또한 이 변수는 자신만의 프로퍼티(attribute라고도한다)를 가지기 때문에 실제로 객체와 비슷하다. 이 attribute 값에 따라 해당 변수가 수정되거나 삭제될 수 있는지, 열거 될 수 있는지 등의 여부가 결정된다.&lt;/p&gt;
+&lt;p&gt;그럼 객체란 무엇일까? 간단하다. 객체는 단지 이름이 지정된 프로퍼티의 모음이며, key-value 쌍으로 이뤄진 목록이다. 객체의 프로퍼티가 함수일 경우 이를 메서드라고 부른다.&lt;/p&gt;
+&lt;h4 id=&quot;클래스가-없다&quot;&gt;&lt;a href=&quot;#%ED%81%B4%EB%9E%98%EC%8A%A4%EA%B0%80-%EC%97%86%EB%8B%A4&quot; aria-label=&quot;클래스가 없다 permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;클래스가 없다.&lt;/h4&gt;
+&lt;p&gt;ES6에 소개된 Class는 사실상 진짜 Class가 아니라 함수이며,
+마치 다른 언어의 Class처럼 사용할 수 있게 문법적으로 추가된 것 뿐이다. 이런 것을 Syntax Sugar라고 부르는 것 같다.&lt;/p&gt;
+&lt;h4 id=&quot;프로토타입&quot;&gt;&lt;a href=&quot;#%ED%94%84%EB%A1%9C%ED%86%A0%ED%83%80%EC%9E%85&quot; aria-label=&quot;프로토타입 permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;프로토타입&lt;/h4&gt;
+&lt;p&gt;ES6이전에 상속을 구현할 때 prototype을 사용했다.
+prototype은 하나의 객체이며, 사용자가 생성한 모든 함수는 새로운 빈 객체를 가리키는 prototype 프로퍼티를 가진다.
+prototype 객체의 contructor 프로퍼티가 가리키는 것은 사용자가 생성한 함수이다.
+사용자는 이 빈 객체에 멤버를 추가할 수 있고, 상속을 통해 다른 객체가 이 객체의 프로퍼티를 자기 것처럼 쓰게 만들 수 있다.&lt;/p&gt;
+&lt;h3 id=&quot;first-class-object&quot;&gt;&lt;a href=&quot;#first-class-object&quot; aria-label=&quot;first class object permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;first-class object&lt;/h3&gt;
+&lt;p&gt;첫 장에 first-class object가 언급되어있어서 정리하고 넘어간다.
+함수가 first class object 인게 뭐가 그리 중요할까? 2-3년 쯤에 한참 유행했던 면접문제였다.&lt;/p&gt;
+&lt;p&gt;자바스크립트는 독특한 언어이다.
+클래스가 없고, 함수는 first class object로 다양한 작업에 사용된다.&lt;/p&gt;
+&lt;p&gt;first class object(일급객체)는 다음과 같은 특징을 가지는 객체이다.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;변수나 데이터 구조 안에 담을 수 있다.&lt;/li&gt;
+&lt;li&gt;인자로 전달할 수 있다.&lt;/li&gt;
+&lt;li&gt;return 값으로 사용할 수 있다.&lt;/li&gt;
+&lt;li&gt;런타임에 생성할 수 있다.&lt;/li&gt;
+&lt;li&gt;할당에 사용된 이름과 관계없이 고유하게 식별할 수 있다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;앞에 3개는 이해하기가 쉬운데, 뒤의 2개는 정확히 감이 오지 않는다.
+capturing과 memoization 얘기까지 나오던데 다시 공부해서 올려야 겠다…&lt;/p&gt;
+&lt;p&gt;참고로 first class object는 JavaScript에만 있는 개념은 아니다.
+&lt;a href=&quot;https://en.wikipedia.org/wiki/First-class_function&quot;&gt;first class function&lt;/a&gt; 참고!&lt;/p&gt;</content:encoded></item><item><title><![CDATA[React Native - style]]></title><link>https://yeri-kim.github.io//posts/rn-style/</link><guid isPermaLink="false">https://yeri-kim.github.io//posts/rn-style/</guid><pubDate>Fri, 12 Jul 2019 13:42:32 GMT</pubDate><content:encoded>&lt;p&gt;React Native 공부를 시작하면서 느낀 불편함이 몇 개 있는데 첫 번째는 개발자도구의 Element, Network 탭 같은 것이 없다는 것이다.&lt;/p&gt;
 &lt;p&gt;두 번째는 style 작성이 불편했다. 매번 component 파일에 StyleSheet을 생성해서 style을 적용하다 보니
 공통 style을 정의하거나 재사용하고 싶은 style을 관리하는 방법을 생각해봐야했다.
 그리고 여러 예제에 js와 css가 분리되지 않는 것도 유지보수에 썩 좋아보이지 않았다.&lt;/p&gt;
@@ -136,7 +238,10 @@ export default App;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 당장 FlatList와의 큰 차이점은 잘 모르겠다.&lt;/p&gt;
 &lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;&amp;lt;SectionList&amp;gt;&lt;/code&gt;의 sections의 속성은 배열이 아니라 객체인데, data와 title 속성이 들어가야 한다.&lt;/p&gt;
 &lt;p&gt;공부만 하는 입장에선 두 개를 꼭 나눴어야 했던 이유를 딱히 모르겠다.. docs를 자세히 봐야겠다. wip..&lt;/p&gt;</content:encoded></item><item><title><![CDATA[CRA에 ESLint와 Prettier 추가하기]]></title><link>https://yeri-kim.github.io//posts/eslint-prettier/</link><guid isPermaLink="false">https://yeri-kim.github.io//posts/eslint-prettier/</guid><pubDate>Mon, 08 Jul 2019 13:42:32 GMT</pubDate><content:encoded>&lt;p&gt;&lt;a href=&quot;https://eslint.org/&quot;&gt;ESLint&lt;/a&gt;는 자바스크립트 문법이나 code convention을 검사하는 도구(linting utility)이다.
-회사 기준에 따라, 프로젝트에 따라 룰을 일일이 추가할 수 있다.&lt;/p&gt;
+자바스크립트는 정적 컴파일을 하지 않는 인터프리터 언어다. 따라서 사소한 타이핑 실수를 알아채지 못한 채 잘못된 프로그램을 배포할 수 있다.
+요즘의 library, framework들은 기본적으로 이런 검사 도구가 세팅되어있기 때문에 걱정할 필요가 없다.
+ESLit로 코드를 검사하고 잠재적인 문제들에 대해 경고를 해준다.&lt;/p&gt;
+&lt;p&gt;이번에는 Editor에도 설치해서 개발단계에서부터 코드를 검사할 수 있도록 하고, ESLint에 추가적인 룰을 적용해보려고 한다.&lt;/p&gt;
 &lt;p&gt;JavaScript Style Guide 중에서 Airbnb 것이 제일 강력하기 때문에 학생들에게 코드리뷰를 할 때 &lt;a href=&quot;https://github.com/airbnb/javascript&quot;&gt;Airbnb JavaScript Style Guide&lt;/a&gt;를 기준으로
 코드를 작성하라고 했었는데, 초반엔 잘 따라하다가 바빠지면 점점 코드 스타일이 많이 망가지곤 했다.&lt;/p&gt;
 &lt;p&gt;처음부터 ESLint, Prettier를 사용하면 손에 익숙해지지 않을 것 같아서 따로 알려주지 않다가, 이번 기업 협업 때 ESLint 피드백이 들어와서 가르치는게 좋겠다고 생각했다.
