@@ -5,21 +5,21 @@ import kebabCase from 'lodash/kebabCase';
 import Sidebar from '../components/Sidebar';
 import Layout from '../components/Layout';
 import Page from '../components/Page';
-import { useSiteMetadata, useCategoriesList } from '../hooks';
+import { useSiteMetadata, useSearchList } from '../hooks';
 
-const CategoriesListTemplate = () => {
+const SearchListTemplate = () => {
   const { title, subtitle } = useSiteMetadata();
-  const categories = useCategoriesList();
+  const searches = useSearchList();
 
   return (
-    <Layout title={`Categories - ${title}`} description={subtitle}>
+    <Layout title={`Search - ${title}`} description={subtitle}>
       <Sidebar />
       <Page title="Categories">
         <ul>
-          {categories.map((category) => (
-            <li key={category.fieldValue}>
-              <Link to={`/category/${kebabCase(category.fieldValue)}/`}>
-                {category.fieldValue} ({category.totalCount})
+          {searches.map((search) => (
+            <li key={search.fieldValue}>
+              <Link to={`/search/${kebabCase(search.fieldValue)}/`}>
+                {search.fieldValue} ({search.totalCount})
               </Link>
             </li>
           ))}
@@ -29,4 +29,4 @@ const CategoriesListTemplate = () => {
   );
 };
 
-export default CategoriesListTemplate;
+export default SearchListTemplate;

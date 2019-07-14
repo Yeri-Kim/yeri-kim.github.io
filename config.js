@@ -4,7 +4,7 @@ module.exports = {
   url: 'https://yeri-kim.github.io/',
   title: 'Blog by Yeri',
   subtitle: 'hello world',
-  copyright: '© All rights reserved.',
+  copyright: '',
   disqusShortname: 'github-io-12',
   postsPerPage: 6,
   googleAnalyticsId: 'UA-73379983-2',
@@ -31,11 +31,8 @@ module.exports = {
     bio: '',
     contacts: {
       email: 'yerikim1028@gmail.com',
-      telegram: '#',
-      twitter: '#',
       github: '/Yeri-Kim',
-      rss: '#',
-      vkontakte: '#'
+      linkedIn: 'yeri-kim-1028'
     }
   }
 };
