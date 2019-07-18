@@ -1,10 +1,11 @@
 ---
-title: React Native - PanResponder 파헤치기
+title: "[React Native] 4장 모바일 컴포넌트"
 date: "2019-06-30T13:42:32.169Z"
 template: "post"
 draft: false
 slug: "/posts/rn-PanResponder/"
 category: "React Native"
+description: "4장 뒷 부분 PanResponder 파헤치기"
 ---
 
 이 번에 공부한 내용은 터치와 제스처 관련한 PanResponder이다.
