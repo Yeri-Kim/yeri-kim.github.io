@@ -4,7 +4,7 @@ date: "2019-04-17T22:42:32.169Z"
 template: "post"
 draft: false
 slug: "/posts/react-liefcycle/"
-category: "react"
+category: "React"
 tags:
   - "react"
 description: "이번 시간은 React 컴포넌트의 생애주기(life cycle)에 대해 알아보는 시간입니다. render, componentDidMount, componentDidUpdate, componentWillUnmount 등의 함수는.."

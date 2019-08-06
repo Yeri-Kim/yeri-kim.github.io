@@ -4,7 +4,7 @@ date: "2019-07-14T13:42:32.169Z"
 template: "post"
 draft: true
 slug: "/posts/gatsby-structure/"
-category: "Gatsby"
+category: "gatsby"
 description: "블로그를 수정하기 위해 gatsby-gatsby-starter-lumen 테마 소스의 디렉토리 구조를 분석해보았습니다."
 ---
 

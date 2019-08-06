@@ -36,7 +36,7 @@ date: "2019-06-14T23:41:32.169Z"
 template: "post"
 draft: false
 slug: "/posts/how-to-wirte-gatsby/"
-category: "Gatsby"
+category: "gatsby"
 description: "Gatsby 블로그는 어떻게 글을 쓰면 되는지, 어떻게 올릴 수 있는지 알아봅시다."
 ---
 ```

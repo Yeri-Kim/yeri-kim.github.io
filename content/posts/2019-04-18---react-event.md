@@ -4,7 +4,7 @@ date: "2019-04-18T22:46:32.169Z"
 template: "post"
 draft: false
 slug: "/posts/react-event/"
-category: "react"
+category: "React"
 tags:
   - "react"
 ---

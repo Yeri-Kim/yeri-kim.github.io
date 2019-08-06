@@ -4,7 +4,7 @@ date: "2019-04-17T22:40:32.169Z"
 template: "post"
 draft: false
 slug: "/posts/react-component-props/"
-category: "react"
+category: "React"
 description: "프론트앤드 개발에서 Component 라는 단어를 많이 사용합니다. component(컴포넌트)란 재사용 가능한 UI 단위입니다."
 ---
 

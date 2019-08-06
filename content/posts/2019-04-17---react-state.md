@@ -4,7 +4,7 @@ date: "2019-04-17T22:41:32.169Z"
 template: "post"
 draft: false
 slug: "/posts/react-state/"
-category: "react"
+category: "React"
 tags:
   - "react"
 description: "state란 말 그대로 컴포넌트의 상태 값입니다."

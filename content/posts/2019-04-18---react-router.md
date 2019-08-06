@@ -4,9 +4,9 @@ date: "2019-04-18T23:40:32.169Z"
 template: "post"
 draft: false
 slug: "/posts/react-router/"
-category: "react"
+category: "React"
 tags:
-  - "react"
+  - "React"
 description: "Create React App(이하 CRA)에 특별히 routing을 위한 로직이 들어있지 않기 때문에, 가장 인기 있는 routing solution인 react-router를 추가해서 routing을 구현하도록 하겠습니다."
 ---
 
