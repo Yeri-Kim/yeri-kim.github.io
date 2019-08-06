@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Blog by Yeri]]></title><description><![CDATA[hello world]]></description><link>https://yeri-kim.github.io/</link><generator>RSS for Node</generator><lastBuildDate>Tue, 23 Jul 2019 09:37:33 GMT</lastBuildDate><item><title><![CDATA[Frontend Testing]]></title><description><![CDATA[JavaScript Testing, 특히 react 테스팅에 대해 배워봅니다. - Unit Tests, Integration Tests, e2e Tests 가 있습니다.]]></description><link>https://yeri-kim.github.io//posts/fe-testing/</link><guid isPermaLink="false">https://yeri-kim.github.io//posts/fe-testing/</guid><pubDate>Sat, 20 Jul 2019 13:42:32 GMT</pubDate><content:encoded>&lt;p&gt;&lt;a href=&quot;https://wecode.co.kr&quot;&gt;wecode&lt;/a&gt;에서 &lt;a href=&quot;https://stackoverflow.com/c/wecode/questions/157&quot;&gt;unit test 수업&lt;/a&gt;을 한 바 있지만, 백앤드(django)에 맞춰진 수업이었기에, 프론트앤드 testing을 위해 새로 작성하였다.
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Blog by Yeri]]></title><description><![CDATA[hello world]]></description><link>https://yeri-kim.github.io/</link><generator>RSS for Node</generator><lastBuildDate>Tue, 06 Aug 2019 04:34:33 GMT</lastBuildDate><item><title><![CDATA[Frontend Testing]]></title><description><![CDATA[JavaScript Testing, 특히 react 테스팅에 대해 배워봅니다. - Unit Tests, Integration Tests, e2e Tests 가 있습니다.]]></description><link>https://yeri-kim.github.io//posts/fe-testing/</link><guid isPermaLink="false">https://yeri-kim.github.io//posts/fe-testing/</guid><pubDate>Sat, 20 Jul 2019 13:42:32 GMT</pubDate><content:encoded>&lt;p&gt;&lt;a href=&quot;https://wecode.co.kr&quot;&gt;wecode&lt;/a&gt;에서 &lt;a href=&quot;https://stackoverflow.com/c/wecode/questions/157&quot;&gt;unit test 수업&lt;/a&gt;을 한 바 있지만, 백앤드(django)에 맞춰진 수업이었기에, 프론트앤드 testing을 위해 새로 작성하였다.
 &lt;del&gt;위의 수업 링크는 wecode 수강생만 볼 수 있음&lt;/del&gt;&lt;/p&gt;
 &lt;hr&gt;
 &lt;blockquote&gt;
@@ -1640,7 +1640,7 @@ date: &amp;quot;2019-06-14T23:41:32.169Z&amp;quot;
 template: &amp;quot;post&amp;quot;
 draft: false
 slug: &amp;quot;/posts/how-to-wirte-gatsby/&amp;quot;
-category: &amp;quot;Gatsby&amp;quot;
+category: &amp;quot;gatsby&amp;quot;
 description: &amp;quot;Gatsby 블로그는 어떻게 글을 쓰면 되는지, 어떻게 올릴 수 있는지 알아봅시다.&amp;quot;
 ---&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;ul&gt;
