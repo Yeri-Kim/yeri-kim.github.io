@@ -31,7 +31,7 @@ module.exports = {
     bio: '',
     contacts: {
       email: 'yerikim1028@gmail.com',
-      github: '/Yeri-Kim',
+      github: 'Yeri-Kim',
       linkedIn: 'yeri-kim-1028'
     }
   }
