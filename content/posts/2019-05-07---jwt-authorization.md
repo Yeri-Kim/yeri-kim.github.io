@@ -6,6 +6,8 @@ draft: false
 slug: "/posts/jwt-authorization/"
 category: "JavaScript"
 description: "로그인 기능을 구현하기 위해 access token을 Local Storage에 저장하고 request header에 보내는 방법을 알아봅니다."
+tags:
+  - "jwt"
 ---
 
 이번 시간에는 access token을 local storage에 저장하고, api 호출 시 request header에 담아 보내는 법을 배우도록 하겠습니다.

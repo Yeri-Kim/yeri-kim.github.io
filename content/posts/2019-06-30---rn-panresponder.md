@@ -6,6 +6,9 @@ draft: false
 slug: "/posts/rn-PanResponder/"
 category: "React Native"
 description: "4장 뒷 부분 PanResponder 파헤치기"
+tags:
+  - "react-native"
+  - "panresponder"
 ---
 
 이 번에 공부한 내용은 터치와 제스처 관련한 PanResponder이다.

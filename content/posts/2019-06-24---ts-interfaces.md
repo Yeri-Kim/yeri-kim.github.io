@@ -6,6 +6,9 @@ draft: false
 slug: "/posts/ts-interfaces/"
 category: "TypeScript"
 description: "TypeScript interface 공부 차례!"
+tags:
+  - "interface"
+  - "typescript"
 ---
 
 [TypeScript - Interfaces](https://www.typescriptlang.org/docs/handbook/interfaces.html)를 공부한 내용입니다.

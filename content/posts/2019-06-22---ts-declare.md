@@ -6,6 +6,8 @@ draft: false
 slug: "/posts/ts-declare/"
 category: "TypeScript"
 description: "TypeScript의 변수 선언에 대해 공부합니다. 이 부분은 var와 ES6의 let/const의 명확한 차이, Scope, Closure, Hoisting, ES6의 Destructuring 개념을 잘 알고 있다면, JavaScript와 다를 것이 거의 없으므로 그냥 넘어가도 좋습니다."
+tags:
+  - "typescript"
 ---
 
 이번에 공부할 내용은 [TypeScript - 변수선언](https://www.typescriptlang.org/docs/handbook/variable-declarations.html)이다.

@@ -6,6 +6,8 @@ draft: false
 slug: "/posts/how-to-wirte-gatsby/"
 category: "gatsby"
 description: "Gatsby 블로그는 어떻게 글을 쓰면 되는지, 어떻게 올릴 수 있는지 알아봅시다."
+tags:
+  - "gatsby"
 ---
 
 정적 블로그는 네이버처럼 글쓰는 에디터가 따로 있고, 저장을 하면 글 내용이 어딘가에 보관되는 그런 방식이 아닙니다.

@@ -6,6 +6,11 @@ draft: false
 slug: "/posts/fe-testing/"
 category: "JavaScript"
 description: "JavaScript Testing, 특히 react 테스팅에 대해 배워봅니다. - Unit Tests, Integration Tests, e2e Tests 가 있습니다."
+tags:
+  - "jest"
+  - "enzyme"
+  - "react"
+  - "test"
 ---
 
 [wecode](https://wecode.co.kr)에서 [unit test 수업](https://stackoverflow.com/c/wecode/questions/157)을 한 바 있지만, 백앤드(django)에 맞춰진 수업이었기에, 프론트앤드 testing을 위해 새로 작성하였다.

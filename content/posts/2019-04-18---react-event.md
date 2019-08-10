@@ -7,6 +7,7 @@ slug: "/posts/react-event/"
 category: "React"
 tags:
   - "react"
+  - "event"
 ---
 
 회원가입 페이지에서 비밀번호를 제대로 입력했는지 `addEventListener` 를 사용해서 key 이벤트로 validation check 로직을 구현해봤었습니다.

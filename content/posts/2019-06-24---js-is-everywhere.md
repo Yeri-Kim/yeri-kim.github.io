@@ -6,6 +6,8 @@ draft: false
 slug: "/posts/js-is-everywhere/"
 category: "activity"
 description: "19/6/22 토요일 마소에서 열렸던 JavaScript is everywhere 컨퍼런스 아주 짧은 리뷰"
+tags:
+  - "conference"
 ---
 
 ![](/media/190624-1.png)

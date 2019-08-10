@@ -6,6 +6,8 @@ draft: false
 slug: "/posts/how-to-change-favicon/"
 category: "gatsby"
 description: "gatsby-starter-lumen 을 사용하면 브라우저 탭에 보이는 이미지가 수염난 아저씨로 되어있습니다. favicon 바꾸는 위치를 알아봅시다."
+tags:
+  - "gatsby"
 ---
 
 탭에 보이는 이미지를 favicon(파비콘) 이라고 부릅니다.

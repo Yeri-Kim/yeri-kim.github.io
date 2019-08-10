@@ -6,6 +6,8 @@ draft: false
 slug: "/posts/how-to-install-jekyll/"
 category: "jekyll"
 description: "Jekyll로 정적 블로그를 만들어 봅니다."
+tags:
+  - "jekyll"
 ---
 
 # Jekyll로 블로그 만들기

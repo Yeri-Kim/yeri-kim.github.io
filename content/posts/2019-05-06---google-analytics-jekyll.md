@@ -7,6 +7,7 @@ slug: "/posts/google-analytics-jekyll/"
 category: "jekyll"
 tags:
   - "jekyll"
+  - "ga"
 ---
 
 

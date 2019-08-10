@@ -5,6 +5,8 @@ template: "post"
 draft: false
 slug: "/posts/update-jekyll"
 category: "jekyll"
+tags:
+  - "jekyll"
 description: "Jekyll 의 기본테마는 너무 많은 사람들이 사용하고 있기에, 조금 수정해보도록 하겠습니다!"
 ---
 
