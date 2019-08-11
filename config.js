@@ -7,7 +7,7 @@ module.exports = {
   copyright: '',
   disqusShortname: 'github-io-12',
   postsPerPage: 6,
-  googleAnalyticsId: 'UA-73379983-2',
+  googleAnalyticsId: 'UA-139726433-1',
   menu: [
     {
       label: 'Articles',

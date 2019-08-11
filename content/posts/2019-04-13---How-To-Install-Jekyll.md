@@ -26,7 +26,7 @@ _[wecode](https://wecode.co.kr) 수강생 대상으로 작성한 포스팅입니
 
 HTML, CSS, JavaScript로 나만의 블로그를 만들려면 시간이 한참 걸릴 것 같습니다.
 
-그래서...! 일일히 개발할 필요 없이 미리 어느 정도 만들어주는 site generator를 쓰려고 합니다.
+그래서...! 일일이 개발할 필요 없이 미리 어느 정도 만들어주는 site generator를 쓰려고 합니다.
 여러 generator가 있는데 그 중에 [Jekyll](https://jekyllrb.com) 이라는 것을 사용하겠습니다.
 몇 개의 명령어로, 단 몇 분만에 블로그 설치가 가능합니다.
 

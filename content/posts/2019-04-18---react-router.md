@@ -108,10 +108,14 @@ class Login extends React.Component {
 export default withRouter(Login);
 ```
 이 컴포넌트에서 props에 route 정보(history)를 받으려면 export하는 class에 `withRouter`로 감싸주어야 합니다.
-이렇게 withRouter같이 감싸주는 것을 [higher-order component(이하 HOC)](https://reactjs.org/docs/higher-order-components.html) 라고 합니다.
+이렇게 withRouter같이 해당 컴포넌트를 감싸주는 것을 [higher-order component(이하 HOC)](https://reactjs.org/docs/higher-order-components.html) 라고 합니다.
 
-HOC는 react 고급? 기능입니다. 자주 간단히 설명하면 HOC는 함수입니다. 그런데 컴포넌트를 인자로 받고, 컴포넌트를 return하는 함수입니다.
+HOC는 react 고급 기능입니다. 기능이라기보다는 컴포넌트의 공통부분을 구현하는 패턴이라고 생각하시면 됩니다.
+간단히 설명하면 HOC는 함수입니다.
+그런데 컴포넌트를 인자로 받고, 컴포넌트를 return하는 함수입니다.
 
-자세한 내용은 나중에 더 공부해보기로 할까요. 이번에는 react-router에서 제공하는 HOC를 사용하고, 우리는 props에서 라우팅 정보만 편하게 받으면 됩니다.
+자세한 내용은 react에 충분히 익숙해지고, 프로젝트 2개 끝난 후 공부하는 것이 좋을 것 같습니다.
+이번에는 react-router에서 제공하는 withRouter라는 HOC를 사용하고, 우리는 props에서 라우팅 정보만 편하게 받으면 됩니다.
+혹시 충분히 아신다면 [컴포넌트 공통화 - HOC](https://yeri-kim.github.io/posts/react-hoc/)에서 공부해주세요.
 
-console.log로 this.props.history 에 어떤 정보들이 더 오는지 한 번 확인 해보세요 :wink:
+console.log로 this.props.history 에 어떤 정보들이 더 오는지 한 번 확인 해보세요  :)
