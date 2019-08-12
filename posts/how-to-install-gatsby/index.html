@@ -167,6 +167,11 @@ title, subtitle, author 등등 본인 정보로 수정해주시면 됩니다.</p
 git remote add origin https://github.com/yeri-kim/yeri-kim.github.io.git</code></pre></div>
 <p>origin git과 잘 연결되어도 아무 반응이 없습니다. 아래의 명령어로 origin 주소가 제대로 나오는지 확인해주세요.</p>
 <div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text">git remote -v</code></pre></div>
+<p>푸시가 잘 되는지 확인해보겠습니다.</p>
+<div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text">git add .
+git commit -m &quot;first commit&quot;
+git push origin master</code></pre></div>
+<p>github에 가셔서 소스코드가 잘 올라왔는지 확인해주세요.</p>
 <p>잘 됐으면 배포 명령어를 실행합니다. 성공적으로 끝나면 1~2분 뒤에 블로그 주소로 들어가보세요.</p>
 <div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text">yarn deploy</code></pre></div>
 <p>정상적으로 배포 됐다면 github 사이트의 블로그 repo 가서 master에 올라온 소스코드르 봐주세요.
@@ -182,7 +187,7 @@ git remote add origin https://github.com/yeri-kim/yeri-kim.github.io.git</code><
 git checkout develop</code></pre></div>
 <p>소스코드를 git에 올리는 과정.</p>
 <div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text">git add .
-git commit -m “first commit”
+git commit -m “blog posting~~”
 git push -u origin develop</code></pre></div>
 <p>내 github 의 develop repo에 들어가서 소스코드가 모두 잘 올라갔는지 확인해주세요.</p>
 <p>잘 올라갔다면 github default 브랜치를 develop으로 바꾸겠습니다.
