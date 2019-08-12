@@ -202,6 +202,14 @@ origin git과 잘 연결되어도 아무 반응이 없습니다. 아래의 명�
 git remote -v
 ```
 
+푸시가 잘 되는지 확인해보겠습니다.
+```
+git add .
+git commit -m "first commit"
+git push origin master
+```
+github에 가셔서 소스코드가 잘 올라왔는지 확인해주세요.
+
 잘 됐으면 배포 명령어를 실행합니다. 성공적으로 끝나면 1~2분 뒤에 블로그 주소로 들어가보세요.
 ```
 yarn deploy
@@ -227,7 +235,7 @@ git checkout develop
 소스코드를 git에 올리는 과정.
 ```
 git add .
-git commit -m “first commit”
+git commit -m “blog posting~~”
 git push -u origin develop
 ```
 
