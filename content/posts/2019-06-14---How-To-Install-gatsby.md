@@ -18,11 +18,11 @@ _[wecode](https://wecode.co.kr) 수강생 대상으로 작성한 포스팅입니
 
 바로 이전에 미니 트위터를 만들었는데, 그 것보다는 더 복잡할 것 같다는 느낌이 확실히 드네요!
 
-* 블로그 홈(최신 글 모음)
-* 카테고리 별로 포스팅 목록을 볼 수 있는 페이지
-* 글 쓰는 페이지
-* 로그인 페이지
-* 등등..
+- 블로그 홈(최신 글 모음)
+- 카테고리 별로 포스팅 목록을 볼 수 있는 페이지
+- 글 쓰는 페이지
+- 로그인 페이지
+- 등등..
 
 HTML, CSS, JavaScript로 나만의 블로그를 만들려면 시간이 한참 걸릴 것 같습니다.
 
@@ -35,6 +35,7 @@ HTML, CSS, JavaScript로 나만의 블로그를 만들려면 시간이 한참 �
 github를 이용해서 배포할 것이고, github에서 제공하는 도메인을 사용하려고 합니다.
 
 #### 시작하기 전에
+
 위에서 나온 새로운 단어 몇 개를 설명드리고 가겠습니다.
 
 _`배포`_
@@ -42,7 +43,6 @@ _`배포`_
 `배포(deploy)한다.` or `디플로이한다.` 라는 말을 앞으로 자주 하고, 듣게 될 것입니다.
 
 배포란, 그동안 개발하던 것을 세상(인터넷상)에 드디어 공개하고 모든 사람들이 접근해서 볼 수 있게 하는 것을 의미합니다.
-
 
 _`도메인`_
 
@@ -54,6 +54,7 @@ _`도메인`_
 개인적으로 도메인을 구매했다면 자신만의 도메인을 연결할 수 있습니다.
 
 #### 블로그 설치 순서
+
 1. Gatsby 테마 고르기
 2. Gatsby Starter로 블로그 설치
 3. 내 컴퓨터(로컬환경)에서 블로그 띄우기
@@ -66,6 +67,7 @@ _`도메인`_
 git과 npm이 깔려있어야 합니다.
 
 ### 1. Gatsby 테마 고르기
+
 [Gatsby Starter](https://www.gatsbyjs.org/starters/?v=2) 사이트에서 테마를 하나 선택해주세요.
 저는 [gatsby-starter-lumen](https://www.gatsbyjs.org/starters/alxshelepenok/gatsby-starter-lumen/) 으로 하겠습니다.
 테마가 다르면 설정이 조금 달라집니다. 다음의 스텝을 그대로 따라하지 못 할 수도 있습니다.
@@ -73,6 +75,7 @@ git과 npm이 깔려있어야 합니다.
 ### 2. Gatsby Starter로 블로그 설치(생성)
 
 이왕 gatsby로 블로그를 쓰기로한거, 터미널에서 gatsby 명령어를 사용할 수 있도록 `gatsby-cli`를 전역에 설치합니다.
+
 ```
 npm install -g gatsby-cli
 ```
@@ -84,33 +87,36 @@ gatsby 명령어를 사용하여 blog라는 디렉토리에 블로그의 소스�
 ```
 gatsby new blog https://github.com/alxshelepenok/gatsby-starter-lumen
 ```
+
 우측의 https://github.com/alxshelepenok/gatsby-starter-lumen 는 gatsby-starter-lumen이라는 theme의 github 주소입니다.
 
 위를 설치하면 앞으로 package manager를 yarn으로 할 것인지, npm으로 할 것인지 물어봅니다.
 default가 yarn으로 설정되어있는 것 같은데 yarn을 따로 설치한적이 없는 분이라면 npm으로 선택해주세요.
 
 yarn을 설치하려면 아래와 같이 하면 됩니다.
+
 ```
 npm install -g yarn
 ```
 
-
 성공하면 현재 위치에 blog라는 디렉토리가 생성되고, 이 안에 각종 파일이 생성됩니다.
 방금 만든 디렉토리(blog)로 가서 파일이 잘 생겼는지 확인해주세요.
+
 ```
 cd blog
 ```
+
 ![](/media/190614-1.png)
-
-
 
 ### 3. 내 컴퓨터(로컬환경)에서 블로그 띄우기
 
 설치가 제대로 되었는지 확인해봅시다.
 앞으로 블로그 글을 작성할 때마다 중간 점검을 하기 위해서는 아래 명령어로 로컬 서버를 띄워줘야합니다.
+
 ```
 yarn develop
 ```
+
 아래와 같은 화면이 뜨면 이제까지의 스텝을 잘 따라왔다는 뜻입니다.
 ![](/media/190614-2.png)
 
@@ -144,13 +150,13 @@ aws, cafe24 등에서 서버를 빌려서 우리의 블로그 파일들을 올�
 
 만약 멈추고 싶으면 서버를 실행한 터미널에서 `ctrl c`를 입력해보세요.
 
-
-
 ### 4. Gatsby config 수정하기
+
 블로그 세팅 몇 가지 수정하겠습니다.
 
 #### config.js
-`src/config.js` 파일을 찾아주세요.
+
+`config.js` 파일을 찾아주세요.
 title, subtitle, author 등등 본인 정보로 수정해주시면 됩니다.
 
 이 중에서 url은 블로그 주소를 쓰면 되는데 `https://깃헙유저네임.github.io/` 입니다.
@@ -164,18 +170,19 @@ module.exports = {
 ```
 
 #### package.json
+
 `src/package.json` 파일에서 "script" 아래 부분의 "deploy"를 수정해주세요.
+
 ```
 "deploy": "yarn run clean && gatsby build && gh-pages -d public -b master",
 ```
+
 앞으로 포스팅 작성을 완료하고, 로컬에서 잘 확인했으면 `yarn deploy` 로 배포합니다.
 이때 소스코드 빌드 후의 public 폴더를 github master 브랜치에 푸시한다는 뜻이고,
 이 소스코드로 https://yeri-kim.github.io/ 에 배포됩니다.
 
-
-
-
 ### 5. github.io repo만들기
+
 블로그 설치는 거의 끝나갑니다. 이제 자신의 github에 소스코드만 올리면 됩니다.
 
 github에 접속해서 새로운 repository(이하 repo)를 만들어 주세요.
@@ -187,33 +194,39 @@ github에 접속해서 새로운 repository(이하 repo)를 만들어 주세요.
 
 [yeri-kim.github.io](yeri-kim.github.io)의 도메인으로 접속할 수 있는 블로그 repo가 생성되었습니다!
 
-
 ### 6. 배포하기
+
 이제 로컬에 있는 블로그 소스코드를 github에 올리겠습니다.
 
 블로그 root에서 git을 세팅합시다. yeri-kim 부분은 각자의 username으로 해주세요.
+
 ```
 git init
 git remote add origin https://github.com/yeri-kim/yeri-kim.github.io.git
 ```
 
 origin git과 잘 연결되어도 아무 반응이 없습니다. 아래의 명령어로 origin 주소가 제대로 나오는지 확인해주세요.
+
 ```
 git remote -v
 ```
 
 푸시가 잘 되는지 확인해보겠습니다.
+
 ```
 git add .
 git commit -m "first commit"
 git push origin master
 ```
+
 github에 가셔서 소스코드가 잘 올라왔는지 확인해주세요.
 
 잘 됐으면 배포 명령어를 실행합니다. 성공적으로 끝나면 1~2분 뒤에 블로그 주소로 들어가보세요.
+
 ```
 yarn deploy
 ```
+
 정상적으로 배포 됐다면 github 사이트의 블로그 repo 가서 master에 올라온 소스코드르 봐주세요.
 네 저희가 원래 받았던 소스코드 구조와 완전히 다릅니다.
 ![](/media/190614-6.png)
@@ -227,12 +240,14 @@ yarn deploy
 개발코드도 보존하기로 하죠. develop이라는 브랜치를 따로 만들어서 여기에다만 올리도록 하겠습니다.
 
 브랜치 생성 및 이동 (모든 명령어는 한줄씩 작성하고 엔터로 실행)
+
 ```
 git branch develop
 git checkout develop
 ```
 
 소스코드를 git에 올리는 과정.
+
 ```
 git add .
 git commit -m “blog posting~~”
