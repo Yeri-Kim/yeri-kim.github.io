@@ -292,7 +292,7 @@ onSave의 props의 값으로 `() => saveToserver(name, age)`를 직접입력하�
 useMemo와 비슷하다. 인자가 변경되지 않으면 UserEdit 컴포넌트의 onSave 속성 값으로 항상 같은 함수가 전달되어 rerender를 막을 수 있다.
 
 ### 5.2.4 컴포넌트의 상탯값을 리덕스처럼 관리하기: useReducer
-호오.. 이부분은 context + useReducer 로 포스트를 새로 다시 써야겠다. p235
+p235
 
 ## 5.3 클래스형 컴포넌트와 훅
 클래스형 라이프사이틀 메서드를 전부 훅으로 구현할 수 있는 예제가 있다. 재밌다.
