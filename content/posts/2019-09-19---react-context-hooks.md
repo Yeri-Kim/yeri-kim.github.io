@@ -295,7 +295,7 @@ useMemo와 비슷하다. 인자가 변경되지 않으면 UserEdit 컴포넌트�
 p235
 
 ## 5.3 클래스형 컴포넌트와 훅
-클래스형 라이프사이틀 메서드를 전부 훅으로 구현할 수 있는 예제가 있다. 재밌다.
+클래스형 라이프사이클 메서드 대부분을 훅으로 구현할 수 있는 예제가 있다. 재밌다.
 
 - componentDidMount, componentWillUnmount 메서드는 useEffect, useLayoutEffect 훅으로 대체할 수 있다.
 - 클래스의 멤버 변수는 useRef 훅으로
@@ -316,7 +316,119 @@ const Profile = ({ firstName, lastName }) => {
 }
 ```
 
------
+이런 로직이 자주 사용된다면, 아래와 같이 커스텀 훅을 만들어서 사용할 수 있다.
+```jsx
+// constructor 역할의 커스텀 훅
+// useOnFirstRender.js
+const useOnFirstRender(func) {
+    const isFirstRef = useRef(true);
+
+    if (isFirstRef.current) {
+        isFirstRef.current = false;
+        func();
+    }
+}
+
+
+// 사용측
+// Profile.js
+const Profile = ({ firstName, lastName }) => {
+    const [name, setName] = useState(`${firstName} ${lastName}`);
+    useOnFirstRender(callApi);
+}
+```
+
+### 5.3.2 componentDidUpdate 메서드
+componentDidUpdate는 원래 최초 rendering 후, state나 props가 바뀌었을 때만 호출한다.
+하지만 useEffect 훅은 최초 rendering 후에도 호출되므로 componentDidUpdate 기능을 구현하기 위해
+useEffect 말고, useRef 훅을 사용하면 된다.
+
+componentDidUpdate 에서는 인자로 이전 상태값, 이전 속성값을 받았지만,
+함수형 컴포넌트는 인스턴스가 없기 때문에 이전 값이 필요하다면
+멤버변수처럼 관리하게 해줄 수 있는 useRef 훅으로 직접 관리해야 한다.
+
+```jsx
+// usePrevious 커스텀 훅
+const usePrevious = value => {
+
+    // 이전 값을 기억하기 위해
+    const valueRef = useRef();
+
+    // 렌더링 후에는 현재 값을 이전 값으로 받는다.
+    useEffect(() => {
+        valueRef.current = value;
+    }, [value]);
+
+    // 이전 값 반환
+    return valueRef.current;
+}
+
+
+
+// 사용 예
+const Profile = props => {
+    const [name, setName] = useState(props.name);
+    const prevUserId = usePrevious(props.userId);
+    const isMountedRef = useRef(false);
+
+    useEffect(() => {
+        if (isMountedRef.current) {
+            // 이전 props, 지금 props 비교해서 다를 때만 state 변경
+            if (prevUserId !== props.userId) {
+                setName(props.name);
+            }
+        } else {
+            isMountedRef.current = true;
+        }
+    });
+}
+
+```
+
+
+위와 같은 로직이 반복되면 커스텀 훅으로 만들 어 쓸 수 있다!
+```jsx
+const useOnUpdate = func => {
+    const isMountedRef = useRef(false);
+    useEffect(() => {
+        if (isMountedRef.current) {
+            func();
+        } else {
+            isMountedRef.current = true;
+        }
+    });
+}
+```
+
+### 5.3.3 getDerivedStateFromProps
+여기까지 블로그 작성하다가 드는 생각은, 이 커스텀 훅을 저자가 제공한 것인지, tutorial에서 제공한것인지 ㅎㅎ
+재밌다.
+
+```jsx
+const SpeedIndicator = ({ speed }) => {
+    const [isFaster, setIsFaster] = useState(false);
+    const [prevSpeed, setPrevSpeed] = useState(0);
+
+    // props가 바뀌었을 때만 state를 변경한다.
+    if (speed !== prevSpeed) {
+        setIsFaster(speed > prevSpeed);
+        setPrevSpeed(speed);
+    }
+
+    return <p>getting faster: {isFaster ? 'y' : 'n'}</p>
+}
+```
+
+리액트는 렌더함수에서 상탯값을 변경하면 변경된 상탯값으로 렌더함수를 다시 호출한다.
+그래서 getDerivedStateFromProps 보다 비효율적이라고도 한다.
+
+주의할 점은, 잘못하면 렌더 함수가 무한대로 호출될 수 있다는 점이다. 위에서 prevSpeed를 usePrevious 커스텀 훅으로
+관리했다면 렌더 함수가 무한대로 호출될 수 있다.
+
+### 5.3.4 forceUpdate
+이 메서드는 지양해야 하므로 정리하지 않겠다.. ㅋㅋ
+
+---------
 
 #### 훅의 장점
 - 재사용 가능한 로직을 쉽게 만들 수 있다: 리액트의 내장 훅과 다른 사람들이 만든 여러 커스텀 훅을 레고처럼 조립해서 쉽게 새로운 훅을 만들 수 있다.
