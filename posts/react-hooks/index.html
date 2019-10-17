@@ -284,9 +284,9 @@ useEffect 인자로 넘긴 함수는 렌더링할 때마다 호출된다.</p>
 <p>onSave의 props의 값으로 <code class="language-text">() =&gt; saveToserver(name, age)</code>를 직접입력하지 말고 위와 같이 작성한다.
 useMemo와 비슷하다. 인자가 변경되지 않으면 UserEdit 컴포넌트의 onSave 속성 값으로 항상 같은 함수가 전달되어 rerender를 막을 수 있다.</p>
 <h3 id="524-컴포넌트의-상탯값을-리덕스처럼-관리하기-usereducer"><a href="#524-%EC%BB%B4%ED%8F%AC%EB%84%8C%ED%8A%B8%EC%9D%98-%EC%83%81%ED%83%AF%EA%B0%92%EC%9D%84-%EB%A6%AC%EB%8D%95%EC%8A%A4%EC%B2%98%EB%9F%BC-%EA%B4%80%EB%A6%AC%ED%95%98%EA%B8%B0-usereducer" aria-label="524 컴포넌트의 상탯값을 리덕스처럼 관리하기 usereducer permalink" class="anchor"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>5.2.4 컴포넌트의 상탯값을 리덕스처럼 관리하기: useReducer</h3>
-<p>호오.. 이부분은 context + useReducer 로 포스트를 새로 다시 써야겠다. p235</p>
+<p>p235</p>
 <h2 id="53-클래스형-컴포넌트와-훅"><a href="#53-%ED%81%B4%EB%9E%98%EC%8A%A4%ED%98%95-%EC%BB%B4%ED%8F%AC%EB%84%8C%ED%8A%B8%EC%99%80-%ED%9B%85" aria-label="53 클래스형 컴포넌트와 훅 permalink" class="anchor"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>5.3 클래스형 컴포넌트와 훅</h2>
-<p>클래스형 라이프사이틀 메서드를 전부 훅으로 구현할 수 있는 예제가 있다. 재밌다.</p>
+<p>클래스형 라이프사이클 메서드 대부분을 훅으로 구현할 수 있는 예제가 있다. 재밌다.</p>
 <ul>
 <li>componentDidMount, componentWillUnmount 메서드는 useEffect, useLayoutEffect 훅으로 대체할 수 있다.</li>
 <li>클래스의 멤버 변수는 useRef 훅으로</li>
@@ -303,6 +303,98 @@ useMemo와 비슷하다. 인자가 변경되지 않으면 UserEdit 컴포넌트�
         <span class="token function">callApi</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
 <span class="token punctuation">}</span></code></pre></div>
+<p>이런 로직이 자주 사용된다면, 아래와 같이 커스텀 훅을 만들어서 사용할 수 있다.</p>
+<div class="gatsby-highlight" data-language="jsx"><pre class="language-jsx"><code class="language-jsx"><span class="token comment">// constructor 역할의 커스텀 훅</span>
+<span class="token comment">// useOnFirstRender.js</span>
+<span class="token keyword">const</span> <span class="token function">useOnFirstRender</span><span class="token punctuation">(</span><span class="token parameter">func</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> isFirstRef <span class="token operator">=</span> <span class="token function">useRef</span><span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>isFirstRef<span class="token punctuation">.</span>current<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        isFirstRef<span class="token punctuation">.</span>current <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+        <span class="token function">func</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+
+<span class="token comment">// 사용측</span>
+<span class="token comment">// Profile.js</span>
+<span class="token keyword">const</span> <span class="token function-variable function">Profile</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter"><span class="token punctuation">{</span> firstName<span class="token punctuation">,</span> lastName <span class="token punctuation">}</span></span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> <span class="token punctuation">[</span>name<span class="token punctuation">,</span> setName<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">useState</span><span class="token punctuation">(</span><span class="token template-string"><span class="token string">`</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>firstName<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string"> </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>lastName<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">`</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">useOnFirstRender</span><span class="token punctuation">(</span>callApi<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre></div>
+<h3 id="532-componentdidupdate-메서드"><a href="#532-componentdidupdate-%EB%A9%94%EC%84%9C%EB%93%9C" aria-label="532 componentdidupdate 메서드 permalink" class="anchor"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>5.3.2 componentDidUpdate 메서드</h3>
+<p>componentDidUpdate는 원래 최초 rendering 후, state나 props가 바뀌었을 때만 호출한다.
+하지만 useEffect 훅은 최초 rendering 후에도 호출되므로 componentDidUpdate 기능을 구현하기 위해
+useEffect 말고, useRef 훅을 사용하면 된다.</p>
+<p>componentDidUpdate 에서는 인자로 이전 상태값, 이전 속성값을 받았지만,
+함수형 컴포넌트는 인스턴스가 없기 때문에 이전 값이 필요하다면
+멤버변수처럼 관리하게 해줄 수 있는 useRef 훅으로 직접 관리해야 한다.</p>
+<div class="gatsby-highlight" data-language="jsx"><pre class="language-jsx"><code class="language-jsx"><span class="token comment">// usePrevious 커스텀 훅</span>
+<span class="token keyword">const</span> <span class="token function-variable function">usePrevious</span> <span class="token operator">=</span> <span class="token parameter">value</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+
+    <span class="token comment">// 이전 값을 기억하기 위해</span>
+    <span class="token keyword">const</span> valueRef <span class="token operator">=</span> <span class="token function">useRef</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment">// 렌더링 후에는 현재 값을 이전 값으로 받는다.</span>
+    <span class="token function">useEffect</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+        valueRef<span class="token punctuation">.</span>current <span class="token operator">=</span> value<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">[</span>value<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment">// 이전 값 반환</span>
+    <span class="token keyword">return</span> valueRef<span class="token punctuation">.</span>current<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+
+
+<span class="token comment">// 사용 예</span>
+<span class="token keyword">const</span> <span class="token function-variable function">Profile</span> <span class="token operator">=</span> <span class="token parameter">props</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> <span class="token punctuation">[</span>name<span class="token punctuation">,</span> setName<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">useState</span><span class="token punctuation">(</span>props<span class="token punctuation">.</span>name<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">const</span> prevUserId <span class="token operator">=</span> <span class="token function">usePrevious</span><span class="token punctuation">(</span>props<span class="token punctuation">.</span>userId<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">const</span> isMountedRef <span class="token operator">=</span> <span class="token function">useRef</span><span class="token punctuation">(</span><span class="token boolean">false</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token function">useEffect</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>isMountedRef<span class="token punctuation">.</span>current<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token comment">// 이전 props, 지금 props 비교해서 다를 때만 state 변경</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>prevUserId <span class="token operator">!==</span> props<span class="token punctuation">.</span>userId<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token function">setName</span><span class="token punctuation">(</span>props<span class="token punctuation">.</span>name<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+            isMountedRef<span class="token punctuation">.</span>current <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre></div>
+<p>위와 같은 로직이 반복되면 커스텀 훅으로 만들 어 쓸 수 있다!</p>
+<div class="gatsby-highlight" data-language="jsx"><pre class="language-jsx"><code class="language-jsx"><span class="token keyword">const</span> <span class="token function-variable function">useOnUpdate</span> <span class="token operator">=</span> <span class="token parameter">func</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> isMountedRef <span class="token operator">=</span> <span class="token function">useRef</span><span class="token punctuation">(</span><span class="token boolean">false</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">useEffect</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>isMountedRef<span class="token punctuation">.</span>current<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token function">func</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+            isMountedRef<span class="token punctuation">.</span>current <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre></div>
+<h3 id="533-getderivedstatefromprops"><a href="#533-getderivedstatefromprops" aria-label="533 getderivedstatefromprops permalink" class="anchor"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>5.3.3 getDerivedStateFromProps</h3>
+<p>여기까지 블로그 작성하다가 드는 생각은, 이 커스텀 훅을 저자가 제공한 것인지, tutorial에서 제공한것인지 ㅎㅎ
+재밌다.</p>
+<div class="gatsby-highlight" data-language="jsx"><pre class="language-jsx"><code class="language-jsx"><span class="token keyword">const</span> <span class="token function-variable function">SpeedIndicator</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter"><span class="token punctuation">{</span> speed <span class="token punctuation">}</span></span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> <span class="token punctuation">[</span>isFaster<span class="token punctuation">,</span> setIsFaster<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">useState</span><span class="token punctuation">(</span><span class="token boolean">false</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">const</span> <span class="token punctuation">[</span>prevSpeed<span class="token punctuation">,</span> setPrevSpeed<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">useState</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment">// props가 바뀌었을 때만 state를 변경한다.</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>speed <span class="token operator">!==</span> prevSpeed<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token function">setIsFaster</span><span class="token punctuation">(</span>speed <span class="token operator">></span> prevSpeed<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token function">setPrevSpeed</span><span class="token punctuation">(</span>speed<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">return</span> <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">></span></span><span class="token plain-text">getting faster: </span><span class="token punctuation">{</span>isFaster <span class="token operator">?</span> <span class="token string">'y'</span> <span class="token punctuation">:</span> <span class="token string">'n'</span><span class="token punctuation">}</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">></span></span>
+<span class="token punctuation">}</span></code></pre></div>
+<p>리액트는 렌더함수에서 상탯값을 변경하면 변경된 상탯값으로 렌더함수를 다시 호출한다.
+그래서 getDerivedStateFromProps 보다 비효율적이라고도 한다.</p>
+<p>주의할 점은, 잘못하면 렌더 함수가 무한대로 호출될 수 있다는 점이다. 위에서 prevSpeed를 usePrevious 커스텀 훅으로
+관리했다면 렌더 함수가 무한대로 호출될 수 있다.</p>
+<h3 id="534-forceupdate"><a href="#534-forceupdate" aria-label="534 forceupdate permalink" class="anchor"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>5.3.4 forceUpdate</h3>
+<p>이 메서드는 지양해야 하므로 정리하지 않겠다.. ㅋㅋ</p>
 <hr>
 <h4 id="훅의-장점"><a href="#%ED%9B%85%EC%9D%98-%EC%9E%A5%EC%A0%90" aria-label="훅의 장점 permalink" class="anchor"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>훅의 장점</h4>
 <ul>
