@@ -10,6 +10,7 @@ import { useSiteMetadata, useTagsList } from '../hooks';
 const TagsListTemplate = () => {
   const { title, subtitle } = useSiteMetadata();
   const tags = useTagsList();
+  console.log(tags)
 
   return (
     <Layout title={`Tags - ${title}`} description={subtitle}>
