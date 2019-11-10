@@ -7,7 +7,7 @@ slug: "/posts/strict-mode/"
 category: "JavaScript"
 description: "JavaScript에서 strict mode란 무엇일까?"
 tags:
-  - "JavaScript"
+  - "java-script"
 ---
 
 #### JavaScript의 유연함
