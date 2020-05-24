@@ -6,7 +6,7 @@ draft: false
 slug: "/posts/array-from/"
 category: "JavaScript"
 tags:
-  - "java-script"
+  - "javascript"
 ---
 [].slice.call(arguments)와 Array.from()는
 유사배열이나 iterable object를 배열로 만들어주는 문법이다.
